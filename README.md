@@ -50,4 +50,4 @@ Esta API será utilizada pelo [frontend]() do SICAP.
 
 :exclamation: A API ainda está na fase de desenvolvimento e não está completa.
 
-As rotas que estão em inglês.
+As rotas estão em inglês, mas a documentação está em português.
