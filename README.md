@@ -1,1 +1,4 @@
-<h1>Atencao quando forem a fazer fetch dos dados devem ter em conta o ingles!</h1>
+# SICAP (Backend)
+
+O SICAP é um sistema de achados e perdidos desenvolvido para a disciplina de Engenhria de Software do curso de Licent da Universidade Eduardo Mondlane. O sistema foi desenvolvido em PHP utilizando o framework Laravel.
+
