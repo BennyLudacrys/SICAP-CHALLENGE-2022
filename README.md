@@ -37,3 +37,17 @@ Após popular o banco de dados com dados de teste, execute o seguinte comando pa
 ```bash
 php artisan serve
 ```
+
+## Documentação da API
+
+A documentação da API pode ser encontrada [aqui](https://documenter.getpostman.com/view/23156057/2s8YYCv6Ng).
+
+A documentação da API foi feita utilizando o [Postman](https://www.postman.com/). Para importar a documentação para o Postman, clique no botão `Run in Postman` na página da documentação.
+
+Isto irá abrir o Postman e importar a documentação para o Postman. Para correr a documentação, basta clicar no botão `Run` no canto superior direito.
+
+Esta API será utilizada pelo [frontend]() do SICAP.
+
+:exclamation: A API ainda está na fase de desenvolvimento e não está completa.
+
+As rotas que estão em inglês.
