@@ -40,7 +40,7 @@ php artisan serve
 
 ## Documentação da API
 
-A documentação da API pode ser encontrada [aqui](https://documenter.getpostman.com/view/23156057/2s8YYCv6Ng).
+A documentação da API pode ser encontrada [aqui](https://documenter.getpostman.com/view/23156057/2s8YYCv6Ng). :arrow_backward::fire:
 
 A documentação da API foi feita utilizando o [Postman](https://www.postman.com/). Para importar a documentação para o Postman, clique no botão `Run in Postman` na página da documentação.
 
