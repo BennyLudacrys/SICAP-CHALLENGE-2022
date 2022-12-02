@@ -34,29 +34,34 @@ Route::post('/perfil/change-password', [ProfileController::class, 'change_passwo
 Route::post('/perfil/update-profile', [ProfileController::class, 'update_profile'])->middleware('auth:sanctum');
 
 
-Route::post('/auth/logout',[AuthController::class,'logout'])->middleware('auth:sanctum');
-Route::get('/publicacoes',[BlogController::class,'list']);
-Route::post('/publicacoes/create',[BlogController::class,'create'])->middleware('auth:sanctum');
+// ***************** Rotas referentes as publicações *****************
 
-Route::get('/publicacoes/{id}',[BlogController::class,'details']);
-Route::put('/publicacoes/{id}/update',[BlogController::class,'update'])->middleware('auth:sanctum');
+// Listar todas as publicações
+Route::get('/publicacoes', [BlogController::class, 'list']);
 
-Route::delete('/publicacoes/{id}/delete',[BlogController::class,'delete'])->middleware('auth:sanctum');
+// Criar uma publicação
+Route::post('/publicacoes/create', [BlogController::class, 'create'])->middleware('auth:sanctum');
 
-Route::post('/publicacoes/{id}/toggle-like',[BlogController::class,'toggle_like'])->middleware('auth:sanctum');
+// Detalhes de uma publicação
+Route::get('/publicacoes/{id}', [BlogController::class, 'details']);
 
-Route::post('/publicacoes/{blog_id}/comentarios/create',[CommentController::class,'create'])->middleware('auth:sanctum');
+// Atualizar uma publicação
+Route::put('/publicacoes/{id}/update', [BlogController::class, 'update'])->middleware('auth:sanctum');
 
-Route::get('/publicacoes/{blog_id}/comentarios',[CommentController::class,'list']);
+// Apagar uma publicação
+Route::delete('/publicacoes/{id}/delete', [BlogController::class, 'delete'])->middleware('auth:sanctum');
 
-Route::put('/comentarios/{comment_id}/update',[CommentController::class,'update'])->middleware('auth:sanctum');
-Route::delete('/comentarios/{comment_id}/delete',[CommentController::class,'delete'])->middleware('auth:sanctum');
+// Curtir uma publicação
+Route::post('/publicacoes/{id}/toggle-like', [BlogController::class, 'toggle_like'])->middleware('auth:sanctum');
 
-Route::post('/perfil/change-password',[ProfileController::class,'change_password'])->middleware('auth:sanctum');
+// Criar um comentário
+Route::post('/publicacoes/{blog_id}/comentarios/create', [CommentController::class, 'create'])->middleware('auth:sanctum');
 
-Route::post('/perfil/update-profile',[ProfileController::class,'update_profile'])->middleware('auth:sanctum');
+// Listar todos os comentários de uma publicação
+Route::get('/publicacoes/{blog_id}/comentarios', [CommentController::class, 'list']);
 
-//Routas Publicas
-// Route::Get();//listar tudo
-// Route::Get();//Rota que permitira a pesquisa
+// Atualizar um comentário
+Route::put('/comentarios/{comment_id}/update', [CommentController::class, 'update'])->middleware('auth:sanctum');
 
+// Apagar um comentário
+Route::delete('/comentarios/{comment_id}/delete', [CommentController::class, 'delete'])->middleware('auth:sanctum');
