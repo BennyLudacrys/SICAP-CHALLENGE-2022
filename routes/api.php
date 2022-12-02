@@ -22,10 +22,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/auth/register',[AuthController::class,'register']);
-Route::post('/auth/login',[AuthController::class,'login']);
+// ***************** Referentes ao usuário *****************
+// Rotas de autenticação e registro
+Route::post('/auth/register', [AuthController::class, 'register']);
+Route::post('/auth/login', [AuthController::class, 'login']);
+Route::get('/auth/user', [AuthController::class, 'user'])->middleware('auth:sanctum');
+Route::post('/auth/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
-Route::get('/auth/user',[AuthController::class,'user'])->middleware('auth:sanctum');
+// Rotas para editar o perfil
+Route::post('/perfil/change-password', [ProfileController::class, 'change_password'])->middleware('auth:sanctum');
+Route::post('/perfil/update-profile', [ProfileController::class, 'update_profile'])->middleware('auth:sanctum');
 
 
 Route::post('/auth/logout',[AuthController::class,'logout'])->middleware('auth:sanctum');
