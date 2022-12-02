@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+
 class User extends Authenticatable
 {
-    use HasApiTokens,HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -20,11 +21,15 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'district',
+        'province',
+        'cellphone',
+        'city',
         'profession',
         'profile_photo'
     ];
 
-    public $appends=[
+    public $appends = [
         'profile_image_url',
     ];
 
@@ -47,12 +52,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getProfileImageUrlAttribute(){
-        if($this->profile_photo){
-            return asset('/uploads/profile_images/'.$this->profile_photo);
-        }else{
-            return 'https://ui-avatars.com/api/?background=random&name='.urlencode($this->name);
+    public function getProfileImageUrlAttribute()
+    {
+        if ($this->profile_photo) {
+            return asset('/uploads/profile_images/' . $this->profile_photo);
+        } else {
+            return 'https://ui-avatars.com/api/?background=random&name=' . urlencode($this->name);
         }
-        
     }
 }

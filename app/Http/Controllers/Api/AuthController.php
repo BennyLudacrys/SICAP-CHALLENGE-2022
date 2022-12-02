@@ -16,6 +16,10 @@ class AuthController extends Controller
             'name' => 'required|min:2|max:100',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6|max:100',
+            'district' => 'nullable|min:2|max:100',
+            'city' => 'nullable|min:2|max:100',
+            'cellphone' => 'nullable|min:3|max:18',
+            'province' => 'nullable|min:2|max:100',
             'confirm_password' => 'required|same:password'
         ]);
 
@@ -29,7 +33,11 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'district' => $request->district,
+            'city' => $request->city,
+            'province' => $request->province,
+            'cellphone' => $request->cellphone,
         ]);
 
 
